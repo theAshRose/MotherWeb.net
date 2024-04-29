@@ -15,8 +15,8 @@ COPY . .
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
 
-# Expose the port the app runs on
+# Expose port for app
 EXPOSE 5000
 
-# Command to run the app using gunicorn instead of the development server
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# run the app using gunicorn 
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:hub"]
