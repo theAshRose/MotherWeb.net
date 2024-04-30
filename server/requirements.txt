@@ -1,5 +1,7 @@
 Flask
 Flask-SQLAlchemy
+Flask-RESTful
 psycopg2-binary==2.8.6
 gunicorn
 pythonenv
+pytest
