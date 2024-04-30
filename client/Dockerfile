@@ -1,29 +1,23 @@
-# Stage 1: Build the React application
-FROM node:14 as builder
+# client/Dockerfile
 
-# Set the working directory in the builder stage
-WORKDIR /usr/src/app
+# Stage 1: Build React App
+FROM node:14 AS builder
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+WORKDIR /app
 
-# Install dependencies
+COPY .//package.json ./package-lock.json ./
+
 RUN npm install
 
-# Copy the rest of the application
-COPY . .
+COPY ./src ./src
 
-# Build the application
+COPY ./public ./public
+
 RUN npm run build
 
-# Stage 2: Serve the app with Nginx
+# Stage 2: Serve the application with Nginx
 FROM nginx:stable-alpine
-
-# Copy the built app from the builder stage
-COPY --from=builder /usr/src/app/build /usr/share/nginx/html
-
-# Expose port 80
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
-
-# Start Nginx and serve the application
 CMD ["nginx", "-g", "daemon off;"]
