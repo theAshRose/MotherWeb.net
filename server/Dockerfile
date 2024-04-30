@@ -6,13 +6,13 @@ WORKDIR /app
 
 # Copy the requirements file and install Python dependencies
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application's code into the container
 COPY . .
 
 # Set the environment variable to tell where the Flask application is found
-ENV FLASK_APP=app.py
+ENV FLASK_APP=run.py
 ENV FLASK_ENV=production
 
 # Expose port for app

@@ -14,18 +14,40 @@ services:
       context: ./server
       dockerfile: Dockerfile
       environment:
-        - SQLALCHEMY_DATABASE_URI=postgresql://username:password@db/mydatabase
+        - SQLALCHEMY_DATABASE_URI=${DATABASE_URL}
     ports:
       - "5000:5000"
     depends_on:
       - db
 
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: csharp-grpc
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: csharp-grpc
+    template:
+      metadata:
+        labels:
+          app: csharp-grpc
+      spec:
+        containers:
+          - name: csharp-grpc
+            image: "theashrose/csharp-grpc:latest"
+            ports:
+              - containerPort: 5000
+
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: mydatabase
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: m${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+     - "${POSTGRES_PORT}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
