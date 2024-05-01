@@ -14,6 +14,7 @@ COPY . .
 # Set the environment variable to tell where the Flask application is found
 ENV FLASK_APP=run.py
 ENV FLASK_ENV=production
+ENV FLASK_ENV=development
 
 # Expose port for app
 EXPOSE 5000
