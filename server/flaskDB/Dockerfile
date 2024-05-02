@@ -17,7 +17,7 @@ ENV FLASK_ENV=production
 ENV FLASK_ENV=development
 
 # Expose port for app
-EXPOSE 5000
+EXPOSE 5000 3000 80
 
 # run the app using gunicorn 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:hub"]

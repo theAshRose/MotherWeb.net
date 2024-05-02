@@ -1,15 +1,18 @@
 version: '3.8'
 
 services:
-  frontend:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
+  ReactApp:
+    build: ./ReactApp
+    context: ./client
+    dockerfile: Dockerfile
     ports:
       - "80:80"
+      - "3000:3000"
     depends_on:
       - CSharpService
       - flaskDB
+    networks:
+      - mother-web
 
   CSharpService:
     build:
@@ -29,8 +32,9 @@ services:
       - FLASK_ENV=development
     ports:
       - "5000:5000"
+      - "3000:3000"
     networks:
-      -motherweb-net
+      - motherweb-net
 
   db:
     image: postgres:latest
@@ -51,12 +55,13 @@ services:
       - "443:443"
       - "80:80"
       - "5000:5000"
+      - "3000:3000"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - flaskDB
       - CSharpService
-      - frontend
+      - ReactApp
     networks:
       - motherweb-net
 
