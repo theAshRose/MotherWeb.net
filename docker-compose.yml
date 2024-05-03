@@ -13,6 +13,8 @@ services:
       - flaskDB
     networks:
       - mother-web
+    volumes:
+      - ./client:/app
 
   CSharpService:
     build:
@@ -35,6 +37,9 @@ services:
       - "3000:3000"
     networks:
       - motherweb-net
+    volumes:
+      - ./server/flaskDB:/app
+      - postgres_data:/var/lib/postgresql/data
 
   db:
     image: postgres:latest
@@ -43,7 +48,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "${POSTGRES_PORT}:5432"
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -65,9 +70,9 @@ services:
     networks:
       - motherweb-net
 
-  networks:
-    motherweb-net:
-      - bridge
+networks:
+  motherweb-net:
+    - bridge
 
 volumes:
   postgres_data:

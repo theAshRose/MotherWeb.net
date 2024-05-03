@@ -16,8 +16,10 @@ ENV FLASK_APP=run.py
 ENV FLASK_ENV=production
 ENV FLASK_ENV=development
 
+VOLUME ["/app"]
+
 # Expose port for app
-EXPOSE 5000 3000 80
+EXPOSE 5000 3000 80 5432
 
 # run the app using gunicorn 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:hub"]

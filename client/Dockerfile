@@ -6,6 +6,8 @@ WORKDIR /app
 
 COPY ./package*.json ./
 
+VOLUME ["/app"]
+
 RUN npm install
 
 COPY . .
