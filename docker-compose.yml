@@ -51,13 +51,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - "443:443"
-      - "80:80"
+      - "8080:80"
       - "3001:3000"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - flaskDB
       - ReactApp
+      - db
     networks:
       - motherweb-net
 
