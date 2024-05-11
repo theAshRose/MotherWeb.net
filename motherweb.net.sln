@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{30657E2F-77F8-4207-902B-E6EB3122829F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sharpChaperone", "server\sharpChaperone\sharpChaperone.csproj", "{26106B33-FE7F-4AC9-A15B-18E0B3C2BC48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26106B33-FE7F-4AC9-A15B-18E0B3C2BC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26106B33-FE7F-4AC9-A15B-18E0B3C2BC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26106B33-FE7F-4AC9-A15B-18E0B3C2BC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26106B33-FE7F-4AC9-A15B-18E0B3C2BC48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{26106B33-FE7F-4AC9-A15B-18E0B3C2BC48} = {30657E2F-77F8-4207-902B-E6EB3122829F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67CB64D1-4838-4F0D-A338-CD738BA9B187}
+	EndGlobalSection
+EndGlobal

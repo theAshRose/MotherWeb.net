@@ -28,6 +28,20 @@ services:
     volumes:
       - ./server/flaskDB:/app
       - postgres_data:/var/lib/postgresql/data
+    
+  sharpChaperone:
+    build:
+      context: ./server/sharpChaperone
+      dockerfile: Dockerfile
+    image: motherwebnet-sharpchaperone
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:5001
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=${DATABASE_URL}
+    networks:
+        - motherweb-net
+    ports:
+      - "5001:80"
 
   db:
     image: postgres:latest
@@ -59,6 +73,7 @@ services:
       - flaskDB
       - ReactApp
       - db
+      - sharpChaperone
     networks:
       - motherweb-net
 
