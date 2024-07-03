@@ -13,6 +13,8 @@ services:
       - motherweb-net
     volumes:
       - ./client:/app
+      - /app/node_modules
+      - /app/build
 
   flaskDB:
     build:
