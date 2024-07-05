@@ -1,12 +1,12 @@
 # ReactApp Dockerfile
 
-FROM node:14 AS builder
+FROM node:14
 
 WORKDIR /app
 
 COPY ./package*.json ./
 
-VOLUME ["/app"]
+# VOLUME ["/app"]
 
 RUN npm install
 
@@ -14,8 +14,10 @@ COPY . .
 
 EXPOSE 80 3000
 
-RUN npm run build
+# RUN npm run build
 
-RUN npm install -g serve
+# RUN npm install -g serve
 
-CMD ["serve", "-s", "build", "-l", "3000"]
+# CMD ["serve", "-s", "build", "-l", "3000"]
+
+CMD ["npm", "start"]

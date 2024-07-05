@@ -7,6 +7,10 @@ Utilizing 3 major cloud services is not only for database stability and security
 
 This is a project started by Ashlynn Rose Conradson as way to serve her ambitions for community contribution and personal development while practicing intergrating different services, languages, technologies and libraries.
 
+
+# How to use(notes for now)
+ensure the run command for building the reactg container includes 'start' for hot reloading and 'build' for a launching app.
+
 # Links
 [into the MotherWeb](www.motherweb.net) - currently inactive
 

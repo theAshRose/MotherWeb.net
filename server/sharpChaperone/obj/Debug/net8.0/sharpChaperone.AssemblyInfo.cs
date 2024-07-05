@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sharpChaperone")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc1b721c86261de03957211667d46ce4cf877bce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0a066c909922d83bac177f9e7c626cb2b6c2b78")]
 [assembly: System.Reflection.AssemblyProductAttribute("sharpChaperone")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sharpChaperone")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
